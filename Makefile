@@ -6,10 +6,11 @@
 #    By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/14 09:47:35 by rghomari          #+#    #+#              #
-#    Updated: 2026/11/16 21:44:56 by rghomari         ###   ########.fr        #
+#    Updated: 2026/11/16 22:21:00 by rghomari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
 NAME = libftprintf.a
 
 CC = cc
@@ -17,7 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCS = ft_print_char.c ft_print_string.c ft_print_number.c ft_print_pointer.c ft_printf.c
+SRCS = ft_printf.c \
+       ft_print_char.c \
+       ft_print_string.c \
+       ft_print_number.c \
+       ft_print_pointer.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -26,7 +31,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c  ft_printf.h
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -35,6 +40,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: fclean
+	$(MAKE) all
 
 .PHONY: all clean fclean re

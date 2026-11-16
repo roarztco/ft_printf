@@ -6,13 +6,13 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 21:18:13 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/16 21:18:17 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/16 22:16:56 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
-{  
-    return(write(1, &c, 1));
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
 }
