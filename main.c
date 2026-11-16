@@ -17,39 +17,75 @@
 //     return (result);
 // }
 
-int ft_printf(char *str,...)
+int ft_printf(char *str, ...)
 {
     va_list args;
-    va_start(args,str);
+    va_start(args, str);
 
     int i = 0;
+    int count = 0;
     while (str[i])
     {
         if (str[i] == '%' && str[i + 1] == 's')
         {
-            char *ss = va_arg(args,char *);
-            printf("%s",ss);
+            char *ss = va_arg(args, char *);
+            count += printf("%s", ss);
             i += 2;
         }
-        else if (str[i] == '%' && str[i + 1] == 'd')
+        else if (str[i] == '%' && (str[i + 1] == 'd' || str[i + 1] == 'i'))
         {
-            int ss = va_arg(args,int);
-            printf("%d",ss);
+            int ss = va_arg(args, int);
+            count += printf("%d", ss);
             i += 2;
         }
-        else{
-
-            printf("%c",str[i]);
+        else if (str[i] == '%' && str[i + 1] == '%')
+        {
+            char m = '%';
+            count += printf("%c", m);
+            i += 2;
+        }
+        else if (str[i] == '%' && str[i + 1] == 'c')
+        {
+            int c = va_arg(args, int);
+            count += printf("%c", c);
+            i += 2;
+        }
+        else if (str[i] == '%' && str[i + 1] == 'u')
+        {
+            unsigned int n = va_arg(args, unsigned int);
+            count += printf("%u", n);
+            i += 2;
+        }
+        else if (str[i] == '%' && str[i + 1] == 'x')
+        {
+            unsigned int n = va_arg(args, unsigned int);
+            count += printf("%x", n);
+            i += 2;
+        }
+        else if (str[i] == '%' && str[i + 1] == 'X')
+        {
+            unsigned int n = va_arg(args, unsigned int);
+            count += printf("%X", n);
+            i += 2;
+        }
+        else if (str[i] == '%' && str[i + 1] == 'p')
+        {
+            void *p = va_arg(args, void *);
+            count += printf("%p", p);
+            i += 2;
+        }
+        else
+        {
+            count += printf("%c", str[i]);
             i++;
         }
     }
     va_end(args);
-    return (i);
+    return (count);
 }
 
 int main()
 {
 
-    char arr[17] = "0123456789abcdef";
-    ft_printf("Hello %s %s %d\n","Rayan","Ss",16);
+    ft_printf("Hello %s %s %d%% %c %u\n","Rayan","Ss",16, 'f', 42);
 }
