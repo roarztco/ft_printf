@@ -6,7 +6,7 @@
 #    By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/14 09:47:35 by rghomari          #+#    #+#              #
-#    Updated: 2026/11/14 09:56:52 by rghomari         ###   ########.fr        #
+#    Updated: 2026/11/14 10:02:39 by rghomari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c  libftprintf.h
+%.o: %.c  ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
