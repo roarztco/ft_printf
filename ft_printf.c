@@ -6,7 +6,7 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:38:25 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/16 21:35:00 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/16 21:42:04 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int ft_printf(char *str, ...)
         }
         else if(str[i] == '%' && str[i + 1] == 'p')
         {
-            char *digits = "0123456789abcdef";
             count += ft_putpointer(va_arg(args, void *));
             i += 2;
         }

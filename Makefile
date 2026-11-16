@@ -6,7 +6,7 @@
 #    By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/14 09:47:35 by rghomari          #+#    #+#              #
-#    Updated: 2026/11/14 10:02:39 by rghomari         ###   ########.fr        #
+#    Updated: 2026/11/16 21:44:56 by rghomari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCS = //
+SRCS = ft_print_char.c ft_print_string.c ft_print_number.c ft_print_pointer.c ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
