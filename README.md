@@ -82,12 +82,9 @@ supported valid-format contract.
   https://man7.org/linux/man-pages/man3/printf.3.html
 - stdarg manual:
   https://man7.org/linux/man-pages/man3/stdarg.3.html
-- write manual:
-  https://man7.org/linux/man-pages/man2/write.2.html
-- Beej's Guide to C Programming:
-  https://beej.us/guide/bgc/html/
+- variadic functions:
+  https://youtu.be/7Sph8JlRo0g?si=EDQd-qnPZNmlXi7q
 
-AI was used to explain variadic arguments, recursive number
-conversion, pointer representation, and return-value counting.
-It also reviewed the implementation and proposed corrections,
-including output-error handling and code organization.
+## AI Usage
+
+AI was used to help correct Norminette formatting, deepen my understanding of variadic functions, and provide practical exercises to reinforce my understanding.
