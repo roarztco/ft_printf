@@ -6,13 +6,13 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 21:18:46 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/16 22:30:26 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/19 16:20:04 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putaddress(uintptr_t ptr)
+int	ft_putaddress(unsigned long ptr)
 {
 	int		count;
 	int		result;
@@ -42,7 +42,7 @@ int	ft_putpointer(void *p)
 	count = ft_putstr("0x");
 	if (count < 0)
 		return (-1);
-	result = ft_putaddress((uintptr_t)p);
+	result = ft_putaddress((unsigned long)p);
 	if (result < 0)
 		return (-1);
 	return (count + result);
