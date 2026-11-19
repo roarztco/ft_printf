@@ -58,7 +58,7 @@ Numbers are printed recursively. Division processes the preceding
 digits, and remainder selects the current digit. Hexadecimal
 conversions use a digit lookup string.
 
-Pointers are converted to uintptr_t before hexadecimal formatting.
+Pointers are converted to unsigned long before hexadecimal formatting.
 
 No heap allocation or additional container data structure is needed.
 Each helper returns its printed byte count and propagates write
