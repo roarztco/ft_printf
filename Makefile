@@ -6,7 +6,7 @@
 #    By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/14 09:47:35 by rghomari          #+#    #+#              #
-#    Updated: 2026/11/19 14:43:23 by rghomari         ###   ########.fr        #
+#    Updated: 2026/11/19 20:22:23 by rghomari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 .PHONY: all clean fclean re
