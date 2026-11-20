@@ -29,7 +29,8 @@ make
 
 This creates `libftprintf.a` at the repository root.
 
-Include `ft_printf.h` in your program, then compile:
+Include `ft_printf.h` and declare `int ft_printf(const char *str, ...);`
+in `main.c` before calling it. Then compile with the library:
 
 ```sh
 cc -Wall -Wextra -Werror main.c libftprintf.a -o test
@@ -51,14 +52,16 @@ The format string is scanned from left to right.
 Ordinary characters are written directly. When a percent sign is
 encountered, the next character selects a conversion helper.
 
-A va_list tracks the variable arguments. Each conversion retrieves
-its argument using the corresponding type.
+A `va_list` tracks the variable arguments. Conversions that take an
+argument retrieve it with `va_arg` using the corresponding type.
 
-Numbers are printed recursively. Division processes the preceding
-digits, and remainder selects the current digit. Hexadecimal
-conversions use a digit lookup string.
+Numbers are printed using two loops. The first finds the highest
+power of 10 or 16 needed for the number. The second prints one digit
+at a time from left to right, dividing the divisor by the base after
+each digit. Hexadecimal conversions use a digit lookup string.
 
-Pointers are converted to unsigned long before hexadecimal formatting.
+Non-null pointers are cast to `size_t` and printed in lowercase
+hexadecimal with a `0x` prefix.
 
 No heap allocation or additional container data structure is needed.
 Each helper returns its printed byte count and propagates write
@@ -72,9 +75,9 @@ matching common glibc behavior for the supported conversions.
 Passing a null string to standard printf's `%s` is undefined behavior
 in C; this handling is a compatibility choice.
 
-A null format string, unsupported conversion, or trailing percent
-sign returns `-1` in this implementation. These are outside the
-supported valid-format contract.
+An unsupported conversion such as `%q` is skipped and adds zero
+to the byte count. A trailing `%` prints a literal percent sign.
+Passing a null format string causes undefined behavior.
 
 ## Resources
 
