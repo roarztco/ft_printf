@@ -75,10 +75,6 @@ matching common glibc behavior for the supported conversions.
 Passing a null string to standard printf's `%s` is undefined behavior
 in C; this handling is a compatibility choice.
 
-An unsupported conversion such as `%q` is skipped and adds zero
-to the byte count. A trailing `%` prints a literal percent sign.
-Passing a null format string causes undefined behavior.
-
 ## Resources
 
 - printf manual:
