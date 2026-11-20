@@ -6,44 +6,25 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 21:18:46 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/19 16:20:04 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/20 18:26:18 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putaddress(unsigned long ptr)
-{
-	int		count;
-	int		result;
-	char	*digits;
-
-	count = 0;
-	digits = "0123456789abcdef";
-	if (ptr >= 16)
-	{
-		result = ft_putaddress(ptr / 16);
-		if (result < 0)
-			return (-1);
-		count += result;
-	}
-	if (ft_putchar(digits[ptr % 16]) < 0)
-		return (-1);
-	return (count + 1);
-}
 
 int	ft_putpointer(void *p)
 {
 	int	count;
 	int	result;
 
-	if (!p)
+	if (p == NULL)
 		return (ft_putstr("(nil)"));
-	count = ft_putstr("0x");
-	if (count < 0)
+	count = 0;
+	if (ft_putstr("0x") == -1)
 		return (-1);
-	result = ft_putaddress((unsigned long)p);
-	if (result < 0)
+	count += 2;
+	result = ft_putnbr_unsigned16((size_t)p, "0123456789abcdef");
+	if (result == -1)
 		return (-1);
 	return (count + result);
 }

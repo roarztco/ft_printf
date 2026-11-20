@@ -6,22 +6,22 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 21:18:26 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/16 22:17:33 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/20 18:27:35 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putstr(const char *s)
 {
 	int	count;
 
-	if (!s)
-		s = "(null)";
+	if (s == NULL)
+		return (ft_putstr("(null)"));
 	count = 0;
 	while (*s)
 	{
-		if (ft_putchar(*s) < 0)
+		if (ft_putchar(*s) == -1)
 			return (-1);
 		count++;
 		s++;

@@ -6,65 +6,74 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:55:00 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/16 22:18:51 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/20 18:27:55 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_unsigned(unsigned int n)
-{
-	int	count;
-	int	result;
-
-	count = 0;
-	if (n >= 10)
-	{
-		result = ft_putnbr_unsigned(n / 10);
-		if (result < 0)
-			return (-1);
-		count += result;
-	}
-	if (ft_putchar(n % 10 + '0') < 0)
-		return (-1);
-	return (count + 1);
-}
-
 int	ft_putnbr(int n)
 {
-	unsigned int	nb;
-	int				count;
-	int				result;
+	long	nb;
+	long	div;
+	int		count;
 
-	nb = (unsigned int)n;
+	nb = n;
 	count = 0;
-	if (n < 0)
+	if (nb < 0)
 	{
-		if (ft_putchar('-') < 0)
+		if (ft_putchar('-') == -1)
 			return (-1);
 		count++;
-		nb = 0u - nb;
+		nb = -nb;
 	}
-	result = ft_putnbr_unsigned(nb);
-	if (result < 0)
-		return (-1);
-	return (count + result);
+	div = 1;
+	while (nb / div >= 10)
+		div *= 10;
+	while (div > 0)
+	{
+		if (ft_putchar(nb / div % 10 + '0') == -1)
+			return (-1);
+		count++;
+		div /= 10;
+	}
+	return (count);
 }
 
-int	ft_putnbr_unsigned16(unsigned int n, char *base)
+int	ft_putnbr_unsigned(unsigned int n)
 {
-	int	count;
-	int	result;
+	unsigned long	div;
+	int				count;
 
+	div = 1;
 	count = 0;
-	if (n >= 16)
+	while (n / div >= 10)
+		div *= 10;
+	while (div > 0)
 	{
-		result = ft_putnbr_unsigned16(n / 16, base);
-		if (result < 0)
+		if (ft_putchar(n / div % 10 + '0') == -1)
 			return (-1);
-		count += result;
+		count++;
+		div /= 10;
 	}
-	if (ft_putchar(base[n % 16]) < 0)
-		return (-1);
-	return (count + 1);
+	return (count);
+}
+
+int	ft_putnbr_unsigned16(size_t n, const char *base)
+{
+	unsigned long	div;
+	int				count;
+
+	div = 1;
+	count = 0;
+	while (n / div >= 16)
+		div *= 16;
+	while (div > 0)
+	{
+		if (ft_putchar(base[n / div % 16]) == -1)
+			return (-1);
+		count++;
+		div /= 16;
+	}
+	return (count);
 }
