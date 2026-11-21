@@ -6,7 +6,7 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:40:39 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/20 18:11:28 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/21 12:25:52 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+int	ft_printf(const char *str, ...);
 int	ft_putchar(char c);
 int	ft_putstr(const char *s);
 int	ft_putnbr(int n);

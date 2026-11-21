@@ -6,13 +6,13 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:38:25 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/20 18:25:46 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/21 12:25:32 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format(char c, va_list *args)
+static int	ft_format(char c, va_list *args)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(*args, int)));
