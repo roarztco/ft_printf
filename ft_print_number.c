@@ -6,7 +6,7 @@
 /*   By: rghomari <rghomari@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:55:00 by rghomari          #+#    #+#             */
-/*   Updated: 2026/11/20 18:27:55 by rghomari         ###   ########.fr       */
+/*   Updated: 2026/11/21 11:57:38 by rghomari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_putnbr(int n)
 
 int	ft_putnbr_unsigned(unsigned int n)
 {
-	unsigned long	div;
+	unsigned int	div;
 	int				count;
 
 	div = 1;
@@ -61,7 +61,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 
 int	ft_putnbr_unsigned16(size_t n, const char *base)
 {
-	unsigned long	div;
+	size_t			div;
 	int				count;
 
 	div = 1;
